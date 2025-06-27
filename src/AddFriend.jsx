@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 const AddFriend = () => {
   const [username, setUsername] = useState("");
@@ -8,7 +8,7 @@ const AddFriend = () => {
 
   const userToken = localStorage.getItem("token");
 
-  const fetchFriends = async () => {
+  const fetchFriends = useCallback(async () => {
     if (!userToken) return;
 
     try {
@@ -31,11 +31,10 @@ const AddFriend = () => {
       console.error("Error fetching friends:", error);
       setStatus("⚠️ Something went wrong while fetching friends.");
     }
-  };
-
+  }, [userToken]); // ✅ Add userToken as a dependency
   useEffect(() => {
     fetchFriends();
-  }, []);
+  }, [fetchFriends]);
 
   const handleSendRequest = async () => {
     const trimmedUsername = username.trim();

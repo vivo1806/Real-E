@@ -1,12 +1,9 @@
-import React from 'react'
- import profileImg1 from "./assets/profile_img_1-zaNAVS_M.png";
- import profileImg2 from "./assets/profile_img_2-dUNED7vt.png";
- import profileImg3 from "./assets/profile_img_3-JahKdPEp.png";
+import React from "react";
+import profileImg1 from "./assets/profile_img_1-zaNAVS_M.png";
+import profileImg2 from "./assets/profile_img_2-dUNED7vt.png";
+import profileImg3 from "./assets/profile_img_3-JahKdPEp.png";
 import svgIcon from "./assets/svgicon.svg";
 import { motion } from "framer-motion";
-
-
-
 
 const Testimonials = () => {
   return (
@@ -23,7 +20,7 @@ const Testimonials = () => {
           Customer{" "}
           <span
             style={{
-              textDecoration: "1px underline ",
+              textDecoration: "1px underline",
               textUnderlineOffset: "4px",
               fontWeight: "400",
             }}
@@ -40,8 +37,9 @@ const Testimonials = () => {
             textAlign: "center",
           }}
         >
-          Crafting Spaces, Building Legacies—Explore Our Portfolion{" "}
+          Crafting Spaces, Building Legacies—Explore Our Portfolio
         </p>
+
         <div
           style={{
             display: "flex",
@@ -50,8 +48,9 @@ const Testimonials = () => {
             flexWrap: "wrap",
           }}
         >
+          {/* Testimonial 1 */}
           <div className="t-card shadow-lg">
-            <img src={profileImg1} alt="profileImg" />
+            <img src={profileImg1} alt="Donald Jackman" />
             <h3>Donald Jackman</h3>
             <p
               style={{
@@ -63,21 +62,20 @@ const Testimonials = () => {
               Marketing Manager
             </p>
             <div className="rating">
-              <img src={svgIcon} alt="stars" />
-              <img src={svgIcon} alt="stars" />
-              <img src={svgIcon} alt="stars" />
-              <img src={svgIcon} alt="stars" />
-              <img src={svgIcon} alt="stars" />
+              {[...Array(5)].map((_, i) => (
+                <img key={i} src={svgIcon} alt="Rating star" />
+              ))}
             </div>
-
             <p style={{ color: "#4b5563", lineHeight: "1.5" }}>
               From the very first meeting, they understood my vision and helped
               me find the perfect property. Their attention to detail and
-              commitment to client satisfaction is unmatched
+              commitment to client satisfaction is unmatched.
             </p>
           </div>
+
+          {/* Testimonial 2 */}
           <div className="t-card shadow-lg">
-            <img src={profileImg2} alt="profile Image" />
+            <img src={profileImg2} alt="Richard Nelson" />
             <h3>Richard Nelson</h3>
             <p
               style={{
@@ -89,11 +87,9 @@ const Testimonials = () => {
               UI/UX Designer
             </p>
             <div className="rating">
-              <img src={svgIcon} alt="starsstars" />
-              <img src={svgIcon} alt="starsstars" />
-              <img src={svgIcon} alt="starsstars" />
-              <img src={svgIcon} alt="starsstars" />
-              <img src={svgIcon} alt="starsstars" />
+              {[...Array(5)].map((_, i) => (
+                <img key={i} src={svgIcon} alt="Rating star" />
+              ))}
             </div>
             <p style={{ color: "#4b5563", lineHeight: "1.5" }}>
               From the very first meeting, they understood my vision and helped
@@ -101,8 +97,10 @@ const Testimonials = () => {
               commitment to client satisfaction is unmatched.
             </p>
           </div>
+
+          {/* Testimonial 3 */}
           <div className="t-card shadow-lg">
-            <img src={profileImg3} alt="profile Image" />
+            <img src={profileImg3} alt="James Washington" />
             <h3>James Washington</h3>
             <p
               style={{
@@ -114,11 +112,9 @@ const Testimonials = () => {
               Co-Founder
             </p>
             <div className="rating">
-              <img src={svgIcon} alt="stars" />
-              <img src={svgIcon} alt="stars" />
-              <img src={svgIcon} alt="stars" />
-              <img src={svgIcon} alt="stars" />
-              <img src={svgIcon} alt="stars" />
+              {[...Array(5)].map((_, i) => (
+                <img key={i} src={svgIcon} alt="Rating star" />
+              ))}
             </div>
             <p style={{ color: "#4b5563", lineHeight: "1.5" }}>
               From the very first meeting, they understood my vision and helped
@@ -130,6 +126,6 @@ const Testimonials = () => {
       </motion.div>
     </div>
   );
-}
+};
 
-export default Testimonials
+export default Testimonials;

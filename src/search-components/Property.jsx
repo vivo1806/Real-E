@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
 const Property = ({ property }) => {
@@ -12,7 +12,8 @@ const Property = ({ property }) => {
   const formattedPrice = `₹${price.toLocaleString()}`;
 
   // Fetch comments (all or only friends')
-  const fetchComments = async () => {
+
+  const fetchComments = useCallback(async () => {
     try {
       const token = localStorage.getItem("token");
       const endpoint = showFriendsOnly
@@ -32,11 +33,10 @@ const Property = ({ property }) => {
     } catch (error) {
       console.error("Error fetching comments:", error);
     }
-  };
-
+  }, [_id, showFriendsOnly]);
   useEffect(() => {
     fetchComments();
-  }, [_id, showFriendsOnly]);
+  }, [fetchComments]);
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
